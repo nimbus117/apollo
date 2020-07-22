@@ -23,14 +23,13 @@ module.exports = {
     Object.assign({
       files: ['imports/startup/server/**/*.js'],
       env: { node: true },
-      plugins: ['node'],
-      extends: ['plugin:node/recommended'],
+      extends: ['plugin:meteor/recommended'],
+      plugins: ['meteor'],
     }),
     Object.assign({
       files: ['imports/startup/client/**', 'imports/ui/**'],
-      env: {
-        browser: true,
-      },
+      env: { browser: true },
+      extends: ['plugin:react/recommended', 'prettier/react'],
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
@@ -40,7 +39,6 @@ module.exports = {
       rules: {
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx'] }],
       },
-      extends: ['plugin:react/recommended', 'prettier/react'],
     }),
   ],
 };
